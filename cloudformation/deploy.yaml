@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Creates some roles with almost admin access but inability to adjust vpc stuff
+
+
+Parameters:
+
+Resources:
+  TeamAdminRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${AWS::StackName}-team-admin-role"
+      AssumeRolePolicyDocument:
+        Statement:
+        - Action: sts:AssumeRole
+          Effect: Allow
+          Principal:
+            AWS:
+            - !Sub "arn:aws:iam::${AWS::AccountId}:root"
+        Version: '2012-10-17'
+      Path: "/"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/PowerUserAccess
+
+
+
+Outputs:
+  TeamAdminRole:
+    Description: The role name
+    Value: !Ref 'TeamAdminRole'
+    Export:
+      Name: !Join ["-", [!Ref "AWS::StackName", TeamAdminRole]]

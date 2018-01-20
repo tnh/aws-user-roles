@@ -1,0 +1,43 @@
+[
+  {
+    "ParameterKey": "EC2InstanceType",
+    "ParameterValue": "t2.nano"
+  },
+  {
+    "ParameterKey": "VPCCIDR",
+    "ParameterValue": "10.50.0.0/16"
+  },
+  {
+    "ParameterKey": "PublicSubnetACIDR",
+    "ParameterValue": "10.50.0.0/24"
+  },
+  {
+    "ParameterKey": "PublicSubnetBCIDR",
+    "ParameterValue": "10.50.1.0/24"
+  },
+  {
+    "ParameterKey": "PrivateSubnetACIDR",
+    "ParameterValue": "10.50.2.0/24"
+  },
+  {
+    "ParameterKey": "PrivateSubnetBCIDR",
+    "ParameterValue": "10.50.3.0/24"
+  },
+  {
+    "ParameterKey": "InternalSubnetACIDR",
+    "ParameterValue": "10.50.4.0/24"
+  },
+  {
+    "ParameterKey": "InternalSubnetBCIDR",
+    "ParameterValue": "10.50.5.0/24"
+  },
+  {
+    "ParameterKey": "ChaosMonkeyEnabled",
+    "ParameterValue": "false"
+  },
+  {
+    "ParameterKey": "InternalSSMHostEnabled",
+    "ParameterValue": "false"
+  }
+
+]

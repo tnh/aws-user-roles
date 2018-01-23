@@ -10,6 +10,7 @@ validate:
 	aws cloudformation validate-template --region ap-southeast-2 --template-body file://cloudformation/deploy.yaml
 
 download:
-        buildkite-agent artifact download cloudformation/deploy.yaml cloudformation/
+	buildkite-agent artifact download cloudformation/deploy.yaml cloudformation/
+
 deploy:
 	scripts/create_or_update_stack.sh $(STACK_NAME) cloudformation/deploy.yaml cloudformation/params.json

@@ -34,9 +34,7 @@ Resources:
                 Effect: "Deny"
                 Action: "ec2:DeleteNetworkAcl"
                 Resource: "*"
-                Condition:
-                  StringEquals:
-                    !Sub "ec2:ResourceTag/aws:cloudformation:stack-name : ${CloudFormationNameToExclude}"
+
 
 
 Outputs:

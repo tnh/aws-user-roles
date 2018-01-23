@@ -36,7 +36,7 @@ Resources:
                 Resource: "*"
                 Condition:
                   StringEquals:
-                    ec2:ResourceTag/aws:cloudformation:stack-name: !Sub "{CloudFormationNameToExclude}
+                    ec2:ResourceTag/aws:cloudformation:stack-name: !Sub "{CloudFormationNameToExclude}"
 
 
 Outputs:

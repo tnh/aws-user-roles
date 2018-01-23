@@ -20,7 +20,7 @@ if [ $? -ne 0 ]; then
     aws cloudformation create-stack --stack-name ${STACKNAME} \
                                     --template-body file://${TEMPLATE} \
                                     --parameters file://${PARAMETERS} \
-                                    --capabilities CAPABILITY_IAM
+                                    --capabilities CAPABILITY_NAMED_IAM
     if [ $? -eq 0 ] ; then
         aws cloudformation wait stack-create-complete --stack-name ${STACKNAME}
     else
@@ -32,7 +32,7 @@ else
     UPDATE=$(aws cloudformation update-stack --stack-name ${STACKNAME} \
                                     --template-body file://${TEMPLATE} \
                                     --parameters file://${PARAMETERS} \
-                                    --capabilities CAPABILITY_IAM 2>&1)
+                                    --capabilities CAPABILITY_NAMED_IAM 2>&1)
 
     RC=$?
     echo $UPDATE

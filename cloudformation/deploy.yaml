@@ -3,6 +3,10 @@ Description: Creates some roles with almost admin access but inability to adjust
 
 
 Parameters:
+  CloudFormationNameToExclude:
+    Type: String
+    Description: The name of the cloudformation stak to prevent changes to
+    Default: tnh-vpc
 
 Resources:
   TeamAdminRole:

@@ -1,0 +1,13 @@
+env:
+  AWS_DEFAULT_REGION: "ap-southeast-2"
+
+steps:
+  - name: ":cloudformation: Validate template"
+    command: "make validate"
+    artifact_paths: 'cloudformation/deploy.yaml'
+
+  - wait
+
+  - name: ":cloudformation: Deploy template"
+    command: "make download deploy"
+    branches: 'master'

@@ -34,7 +34,9 @@ Resources:
                 Effect: "Deny"
                 Action: "ec2:DeleteNetworkAcl"
                 Resource: "*"
-
+                Condition:
+                  StringEquals:
+                    ec2:ResourceTag/aws:cloudformation:stack-name: tnh-vpc
 
 
 Outputs:

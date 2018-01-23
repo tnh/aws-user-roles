@@ -11,3 +11,5 @@ steps:
   - name: ":cloudformation: Deploy template"
     command: "make download deploy"
     branches: 'master'
+    concurrency: 1
+    concurrency_groups: "iam-deploy"

@@ -24,7 +24,19 @@ Resources:
       Path: "/"
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/PowerUserAccess
-
+      Policies:
+        -
+          PolicyName: "DenyVPC"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Deny"
+                Action: "ec2:DeleteNetworkAcl"
+                Resource: "*"
+                Condition:
+                  StringEquals:
+                    !Sub "ec2:ResourceTag/aws:cloudformation:stack-name : ${CloudFormationNameToExclude}"
 
 
 Outputs:

@@ -12,4 +12,4 @@ steps:
     command: "make download deploy"
     branches: 'master'
     concurrency: 1
-    concurrency_groups: "iam-deploy"
+    concurrency_group: "iam-deploy"

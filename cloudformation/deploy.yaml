@@ -32,11 +32,20 @@ Resources:
             Statement:
               -
                 Effect: "Deny"
-                Action: "ec2:DeleteNetworkAcl"
+                Action:
+                  - ec2:*Vpc*
+                  - ec2:*Subnet*
+                  - ec2:*Vpn*
+                  - ec2:*Route*
+                  - ec2:*NetworkAcl*
+                  - ec2:*DhcpOptions*
                 Resource: "*"
                 Condition:
                   StringEquals:
-                    ec2:ResourceTag/aws:cloudformation:stack-name: !Sub "{CloudFormationNameToExclude}"
+                    ec2:ResourceTag/aws:cloudformation:stack-name: !Sub "${CloudFormationNameToExclude}"
+
+# what is the order in which this policy doc is applied - managed policy first and then custom or the reverse? 
+
 
 
 Outputs:

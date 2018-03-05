@@ -9,10 +9,11 @@ steps:
   - name: ":cloudformation: Validate template"
     command: "make validate"
     artifact_paths: 'cloudformation/deploy.yaml'
-    queue:
-      agent: dev
+    agents:
+      queue: 'dev'
 
-  - blocking
+  - block: ':shipit: Release'
+    branches: 'master'
 
   - name: ":cloudformation: Deploy template"
     command: "make download deploy"
